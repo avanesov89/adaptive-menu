@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+:focus {
+    outline: none;
+}
+body {
+    background: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*стили для наложения*/
+.body-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: opacity 0.4s 0s, visibility 0s 0.4s;
+    -moz-transition: opacity 0.4s 0s, visibility 0s 0.4s;
+    transition: opacity 0.4s 0s, visibility 0s 0.4s;
+}
+.body-overlay.menu-open {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.4s 0s, visibility 0s 0s;
+    -moz-transition: opacity 0.4s 0s, visibility 0s 0s;
+    transition: opacity 0.4s 0s, visibility 0s 0s;
+}
+/*Стили для адаптивного меню*/
+.a-menu {
+    position: fixed;
+    overflow: auto;
+    z-index: 999;
+    width: 280px;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background: #0d1716;
+    box-shadow: none;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+    transform: translateX(100%);
+    -webkit-transition: -webkit-transform 0.4s 0s, box-shadow 0.4s 0s;
+    -moz-transition: -moz-transform 0.4s 0s, box-shadow 0.4s 0s;
+    transition: transform 0.4s 0s, box-shadow 0.4s 0s;
+   /*заголовок блока*/
+   /*Кнопка закрыть*/
+   /*стили для пунктов меню*/
+   /*подменю*/
+}
+.a-menu.menu-open {
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
+.a-menu__title {
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 60px 0;
+    padding: 0 30px;
+    line-height: 50px;
+    width: 100%;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.a-menu .close-trigger {
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: none;
+}
+.a-menu .menu {
+    margin-bottom: 60px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.a-menu .menu__item {
+    position: relative;
+}
+.a-menu .menu__item-drop::before {
+    content: '›';
+    height: 50px;
+    width: 10px;
+    position: absolute;
+    right: 30px;
+    color: #fff;
+    top: 15px;
+}
+.a-menu .menu__link {
+    display: flex;
+    padding: 0 30px;
+    font-size: 13px;
+    line-height: 1.5;
+    height: 50px;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.a-menu .menu__link:hover, .a-menu .menu__link:focus, .a-menu .menu__link:active {
+    color: #f1f1f1;
+    text-decoration: underline;
+}
+.a-menu .sub-menu {
+    height: 0;
+    visibility: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-transition: all 0.2s 0s, visibility 0s 0.2s;
+    -moz-transition: all 0.2s 0s, visibility 0s 0.2s;
+    transition: all 0.2s 0s, visibility 0s 0.2s;
+}
+.a-menu .sub-menu.open {
+    padding: 20px 0;
+    height: auto;
+    visibility: visible;
+    -webkit-transition: all 0.2s 0s, visibility 0s 0s;
+    -moz-transition: all 0.2s 0s, visibility 0s 0s;
+    transition: all 0.2s 0s, visibility 0s 0s;
+}
+.a-menu .sub-menu.open .sub-menu__item {
+    opacity: 1;
+    -webkit-transition: opacity 0.2s 0.1s;
+    -moz-transition: opacity 0.2s 0.1s;
+    transition: opacity 0.2s 0.1s;
+}
+.a-menu .sub-menu__item {
+    opacity: 0;
+}
+.a-menu .sub-menu__link {
+    line-height: 30px;
+    border: none;
+    padding-left: 55px;
+    text-transform: none;
+    color: #979ca4;
+    text-decoration: none;
+    font-size: 12px;
+}
+.a-menu .sub-menu__link:before {
+    content: '›';
+    height: 30px;
+    width: 5px;
+    position: absolute;
+    left: 40px;
+}
